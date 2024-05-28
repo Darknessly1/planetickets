@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #d6ebf7;
+    background-size: cover; /* Adjust as needed */
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    flex-shrink: 1;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10% 10% 0 0;
+}
+
+
+.smdiv {
+    border-radius: 49px;
+    margin: 10px;
+}
+
+.reg-style {
+    background-color: #f3f4f6;
+}
+
+
+.imgback {
+    position: relative; 
+    z-index: -999; 
+    background-image: url('images/ss2.jpg');
+    background-size: 100%;
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 10; 
+    /* Your other styles for the dropdown */
+}
+
+
+.hover-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hover-content {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rel-pos {
+    box-sizing: inherit;
+    width: 50vw;
+    padding: 10px;
+    position: relative;
+    left: 50%;
+    top: 150%;
+}
+
+
+.buttons-container {
+    position: absolute;
+    right: 2px;
+    /* left: 0px; */
+    bottom: 20px;
+}
