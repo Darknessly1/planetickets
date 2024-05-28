@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FlightInfoController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\NewTicketController;
 use App\Http\Controllers\TicketController;
 
 Route::get('/', function () {
@@ -62,6 +63,11 @@ Route::get('/aboutus',  function () {
 });
 
 
+// this is for the new tickets:
+Route::get('/tickets', [NewTicketController::class, 'index']);
+
+
+
 Route::post('/add-ticket', [TicketController::class, 'addTicket'])->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -69,6 +75,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/api/flights', [TicketController::class, 'index']);
+Route::get('/api/newtickets', [TicketController::class, 'index']);
 
 Route::post('/add-to-dashboard', [TicketController::class, 'addToDashboard']);
 Route::get('/dashboard-tickets', [TicketController::class, 'getDashboardTickets']);

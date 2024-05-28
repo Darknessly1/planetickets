@@ -52,10 +52,10 @@ export default function NewOffers({ auth, user }) {
                     {displayedTickets.map((ticket) => (
                         <div key={ticket.TicketID} className="card">
                             <div className="relative max-w-sm m-4">
-                                <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
-                                <div className="relative h-full p-3 bg-white border-2 border-green-500 rounded-lg">
+                                <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-gray-500 rounded-lg"></span>
+                                <div className="relative h-full p-3 bg-white border-2 border-black rounded-lg">
                                     <div className="flex items-center -mt-1">
-                                        <TicketIcon className="w-8 h-8 text-green-500" />
+                                        <TicketIcon className="w-8 h-8 text-blue-200" />
                                     </div>
                                     <p className="my-2 text-gray-600"><strong>Flight Number:</strong> {ticket.FlightNumber}</p>
                                     <p className="my-2 text-gray-600"><strong>Departure Airport:</strong> {ticket.DepartureAirport}</p>

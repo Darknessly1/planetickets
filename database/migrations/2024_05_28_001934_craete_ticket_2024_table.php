@@ -6,19 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
-        //
+        Schema::create('new_tickets', function (Blueprint $table) {
+            $table->id();
+            $table->integer('ticket_id')->unique();
+            $table->date('date');
+            $table->string('departure_airport_code');
+            $table->string('departure_airport_name');
+            $table->string('arrival_airport_code');
+            $table->string('arrival_airport_name');
+            $table->string('airline_code');
+            $table->string('airline_name');
+            $table->string('passenger_name');
+            $table->timestamps();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        //
+        Schema::dropIfExists('tickets');
     }
 };
