@@ -64,8 +64,7 @@ Route::get('/aboutus',  function () {
 
 
 // this is for the new tickets:
-Route::get('/tickets', [NewTicketController::class, 'index']);
-Route::get('/api/tickets', [NewTicketController::class, 'apiIndex']);
+Route::get('/api/tickets', [NewTicketController::class, 'index']);
 
 
 Route::post('/add-ticket', [TicketController::class, 'addTicket'])->middleware('auth');
