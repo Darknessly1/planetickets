@@ -49,6 +49,7 @@ const Tickets = ({ auth, user }) => {
                                 <p>From: {ticket.departure_airport_name} ({ticket.departure_airport_code})</p>
                                 <p>To: {ticket.arrival_airport_name} ({ticket.arrival_airport_code})</p>
                                 <p>Date: {ticket.date}</p>
+                                <p>Price: {ticket.price}</p>
                             </div>
                         ))}
                     </div>

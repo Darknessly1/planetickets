@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         
-        $this->call([
-            TicketsTableSeeder::class,
-        ]);
-
         // $this->call([
-        //     NewTicketSeeder::class,
+        //     TicketsTableSeeder::class,
         // ]);
+
+        $this->call([
+            NewTicketSeeder::class,
+        ]);
     }
 }

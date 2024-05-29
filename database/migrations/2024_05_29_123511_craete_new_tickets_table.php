@@ -14,17 +14,21 @@ return new class extends Migration
             $table->date('date');
             $table->string('departure_airport_code');
             $table->string('departure_airport_name');
+            $table->string('departure_country');
+            $table->string('departure_city');
             $table->string('arrival_airport_code');
             $table->string('arrival_airport_name');
+            $table->string('arrival_country');
+            $table->string('arrival_city');
             $table->string('airline_code');
             $table->string('airline_name');
-            $table->string('passenger_name');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('new_tickets');
     }
 };
