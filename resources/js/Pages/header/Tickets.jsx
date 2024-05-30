@@ -11,10 +11,6 @@ const panesData = [
     { color: 'blue', icon: 'tint', title: 'Adapt', subtitle: 'Embrace the times' },
     { color: 'purple', icon: 'palette', title: 'Inspire', subtitle: 'Share your potential' }
 ];
-
-const test = {
-    
-}
  
 const Pane = ({ color, icon, title, subtitle, isActive, onClick }) => {
     return (
