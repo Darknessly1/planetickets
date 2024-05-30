@@ -2,9 +2,61 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from '@/Components/Footer';
 import Nav from '@/Components/Nav';
-import { TicketIcon } from '@heroicons/react/solid';
+import 'tailwindcss/tailwind.css';
+
+const panesData = [
+    { color: 'red', icon: 'walking', title: 'Imagine', subtitle: 'Chase your dreams' },
+    { color: 'yellow', icon: 'apple-alt', title: 'Build', subtitle: 'Realize your vision' },
+    { color: 'green', icon: 'tree', title: 'Explore', subtitle: 'Discover the world' },
+    { color: 'blue', icon: 'tint', title: 'Adapt', subtitle: 'Embrace the times' },
+    { color: 'purple', icon: 'palette', title: 'Inspire', subtitle: 'Share your potential' }
+];
+
+const Pane = ({ color, icon, title, subtitle, isActive, onClick }) => {
+    return (
+        <div
+            onClick={onClick}
+            className={`cursor-pointer duration-700 ease-in-out flex-grow m-2 min-h-14 min-w-14 overflow-hidden pane relative rounded-3xl transition-all ${isActive ? 'flex-grow-10 max-w-full' : ''
+                }`}
+        >
+            <div
+                className={`absolute bg-center bg-cover bg-${color}-500 bg-${color}-img bg-no-repeat duration-700 ease-in-out inset-0 scale-105 transition-all z-10 ${isActive ? 'transform scale-125' : ''
+                    }`}
+            />
+            <div
+                className={`absolute bg-gradient-to-b bottom-0 duration-700 ease-in-out from-transparent h-1/2 inset-x-0 opacity-0 shadow to-black transform transition-all translate-y-1/2 z-20 ${isActive ? 'opacity-75 translate-y-0' : ''
+                    }`}
+            />
+            <div
+                className={`absolute bottom-0 duration-700 ease-in-out flex label left-0 mb-2 ml-3 sm:mb-3 sm:ml-2 transition-all z-30 ${isActive ? 'sm:translate-x-2' : ''
+                    }`}
+            >
+                <div
+                    className={`bg-gray-900 flex h-10 icon items-center justify-center mr-3 rounded-full text-${color}-500 w-10`}
+                >
+                    <i className={`fas fa-${icon}`} />
+                </div>
+                <div className="content flex flex-col justify-center leading-tight text-white whitespace-pre">
+                    <div
+                        className={`ease-in-out font-bold duration-700 opacity-0 relative transform transition-all translate-x-8 ${isActive ? 'opacity-1 translate-x-0' : ''
+                            }`}
+                    >
+                        {title}
+                    </div>
+                    <div
+                        className={`delay-100 duration-700 ease-in-out opacity-0 relative transform transition-all translate-x-8 ${isActive ? 'opacity-1 translate-x-0' : ''
+                            }`}
+                    >
+                        {subtitle}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const Tickets = ({ auth, user }) => {
+    const [activePaneIndex, setActivePaneIndex] = useState(0);
     const [tickets, setTickets] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
@@ -70,7 +122,7 @@ const Tickets = ({ auth, user }) => {
                 <div className="flex">
 
                     <div className="flex-1 p-4">
-                        <div class="flex justify-center items-center  h-screen w-full">
+                        <div class="flex justify-center items-center h-screen w-full">
                             <div class="relative cursor-pointer dark:text-white">
                                 <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
                                 <div class="relative p-6 bg-black dark:bg-white border-2 border-black rounded-lg hover:scale-105 transition duration-500">
@@ -137,28 +189,21 @@ const Tickets = ({ auth, user }) => {
                 </div>
             </div>
 
-            <section className="p-4 lg:p-8 dark:bg-inheret dark:text-gray-800">
-                <div className="container mx-auto space-y-12">
-                    <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img src="https://source.unsplash.com/640x480/?1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
-                        <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
-                            <span className="text-xs uppercase dark:text-gray-600">Join, it's free</span>
-                            <h3 className="text-3xl font-bold">We're not reinventing the wheel</h3>
-                            <p className="my-6 dark:text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
-                            <button type="button" className="self-start">Action</button>
-                        </div>
-                    </div>
-                    <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
-                        <img src="https://source.unsplash.com/640x480/?2" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
-                        <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
-                            <span className="text-xs uppercase dark:text-gray-600">Join, it's free</span>
-                            <h3 className="text-3xl font-bold">We're not reinventing the wheel</h3>
-                            <p className="my-6 dark:text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
-                            <button type="button" className="self-start">Action</button>
-                        </div>
-                    </div>
+            <div className="m-4 antialiased bg-gradient-to-b flex flex-col font-sans from-black items-stretch justify-center h-screen p-2 to-gray-900 sm:flex-row sm:items-center">
+                <div className="flex flex-col flex-grow items-stretch max-w-2xl min-w-md w-full sm:flex-row sm:h-72 sm:overflow-hidden">
+                    {panesData.map((pane, index) => (
+                        <Pane
+                            key={index}
+                            color={pane.color}
+                            icon={pane.icon}
+                            title={pane.title}
+                            subtitle={pane.subtitle}
+                            isActive={index === activePaneIndex}
+                            onClick={() => setActivePaneIndex(index)}
+                        />
+                    ))}
                 </div>
-            </section>
+            </div>
 
             <Footer />
         </>

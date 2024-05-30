@@ -17,7 +17,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: #d6ebf7;
-    background-size: cover; /* Adjust as needed */
+    background-size: cover;
+    /* Adjust as needed */
     background-position: center;
     background-attachment: fixed;
 }
@@ -50,15 +51,15 @@ footer {
 
 
 .imgback {
-    position: relative; 
-    z-index: -999; 
+    position: relative;
+    z-index: -999;
     background-image: url('images/ss2.jpg');
     background-size: 100%;
 }
 
 .dropdown {
     position: absolute;
-    z-index: 10; 
+    z-index: 10;
     /* Your other styles for the dropdown */
 }
 
@@ -96,4 +97,41 @@ footer {
     right: 2px;
     /* left: 0px; */
     bottom: 20px;
+}
+
+/* App.css */
+.pane.active {
+    flex-grow: 10;
+    max-width: 100%;
+}
+
+.pane .background {
+    transform: scale(1.05);
+    transition: transform 0.7s ease-in-out;
+}
+
+.pane.active .background {
+    transform: scale(1.25);
+}
+
+.pane .label {
+    opacity: 0;
+    transform: translateX(0.5rem);
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.pane.active .label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pane .shadow {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.pane.active .shadow {
+    opacity: 0.75;
+    transform: translateY(0);
 }
