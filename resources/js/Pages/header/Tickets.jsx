@@ -69,25 +69,10 @@ const Tickets = ({ auth, user }) => {
 
             <div className="container mx-auto p-4">
                 <h2>Tickets</h2>
-                <div className="flex">
+                <div className=" relative">
 
-                    <div className="flex-1 p-4">
-                        <div class="flex justify-center items-center h-screen w-full">
-                            <div class="relative cursor-pointer dark:text-white">
-                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
-                                <div class="relative p-6 bg-black dark:bg-white border-2 border-black rounded-lg hover:scale-105 transition duration-500">
-                                    <div class="flex items-center">
-                                        <span class="text-xl">✈️</span>
-                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800 dark:text-white">Book Flight Tickets Online</h3>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-300">
-                                        Save time and hassle by booking your flight tickets online. Enjoy the convenience of comparing different airlines, prices, and schedules all in one place. Spend less time searching and more time preparing for your trip!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <Panes />
 
-                    </div>
 
                     {/* Tickets Section */}
                     <div className="flex-1">
@@ -138,10 +123,6 @@ const Tickets = ({ auth, user }) => {
                     </div>
                 </div>
             </div>
-            
-            <Panes />
-            
-
             <Footer />
         </>
     );

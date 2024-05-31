@@ -60,7 +60,6 @@ footer {
 .dropdown {
     position: absolute;
     z-index: 10;
-    /* Your other styles for the dropdown */
 }
 
 
@@ -99,42 +98,50 @@ footer {
     bottom: 20px;
 }
 
-/* App.css */
-/* .pane.active {
+
+.pane.active {
     flex-grow: 10;
     max-width: 100%;
 }
 
-.pane .background {
-    transform: scale(1.05);
-    transition: transform 0.7s ease-in-out;
-}
-
 .pane.active .background {
-    transform: scale(1.25);
-}
-
-.pane .label {
-    opacity: 0;
-    transform: translateX(0.5rem);
-    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+    transform: scale(1.25, 1.25);
 }
 
 .pane.active .label {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0.5rem);
 }
 
-.pane .shadow {
-    opacity: 0;
-    transform: translateY(1.5rem);
-    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+.pane.active .label .content>* {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .pane.active .shadow {
     opacity: 0.75;
     transform: translateY(0);
-} */
+}
+
+.bg-flight-booking {
+    background-image: url("images/flight-booking.jpg");
+}
+
+.bg-hotel-booking {
+    background-image: url('images/hotel-booking.jpg');
+}
+
+.bg-airport {
+    background-image: url('images/airport.jpg');
+}
+
+.bg-ticket {
+    background-image: url('images/ticket.jpg');
+}
+
+.bg-travel {
+    background-image: url('images/travel.jpg');
+}
+
 
 
 .pane {

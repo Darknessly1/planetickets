@@ -81,7 +81,7 @@ export default function NewOffers({ auth, user }) {
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-center my-4">
+                <div className="flex justify-center m-4">
                     <button
                         onClick={goToPreviousPage}
                         disabled={currentPage === 1}
