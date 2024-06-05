@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'C:\\Users\\Darknessly\\Desktop\\planetickets\\resources\\css\\app.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';  // Ensure Font Awesome is imported
 
 const panesData = [
     { color: 'red', icon: 'plane-departure', title: 'Flights', subtitle: 'Book your flights', bg: 'flight-booking' },
@@ -14,8 +14,8 @@ const Panes = () => {
     const [activePaneIndex, setActivePaneIndex] = useState(0);
 
     return (
-        <div className="antialiased bg-gradient-to-b flex flex-col font-sans from-black items-stretch justify-center  sm:flex-row sm:items-center">
-            <div className="flex flex-col flex-grow items-stretch max-w-2xl min-w-md w-full sm:flex-row sm:h-72 sm:overflow-hidden">
+        <div className="m-3 rounded-3xl antialiased bg-gradient-to-b flex flex-col font-sans  items-stretch justify-center sm:flex-row sm:items-center">
+            <div className="flex flex-col flex-grow items-stretch max-w-6xl min-w-md w-full sm:flex-row sm:h-72 sm:overflow-hidden">
                 {panesData.map((pane, index) => (
                     <div
                         key={index}
@@ -41,5 +41,6 @@ const Panes = () => {
 };
 
 export default Panes;
+
 
 

@@ -99,6 +99,8 @@ footer {
 }
 
 
+/* PANE */
+
 .pane.active {
     flex-grow: 10;
     max-width: 100%;
@@ -123,24 +125,25 @@ footer {
 }
 
 .bg-flight-booking {
-    background-image: url("images/flight-booking.jpg");
+    background-image: url('/images/flight-booking.jpg');
 }
 
 .bg-hotel-booking {
-    background-image: url('images/hotel-booking.jpg');
+    background-image: url('/images/hotel-booking.jpg');
 }
 
 .bg-airport {
-    background-image: url('images/airport.jpg');
+    background-image: url('/images/airport.jpg');
 }
 
 .bg-ticket {
-    background-image: url('images/ticket.jpg');
+    background-image: url('/images/ticket.jpg');
 }
 
 .bg-travel {
-    background-image: url('images/travel.jpg');
+    background-image: url('/images/travel.jpg');
 }
+
 
 
 
@@ -232,4 +235,30 @@ footer {
 .pane.active .shadow {
     opacity: 0.75;
     transform: translateY(0);
+}
+
+
+/* Images */
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: 1024px) {
+    .image-container:nth-child(1) img {
+        margin-top: 7rem;
+    }
+
+    .image-container:nth-child(2) img {
+        padding: 2rem 0;
+    }
+
+    .image-container:nth-child(3) img {
+        margin-top: 7rem;
+    }
 }
