@@ -112,64 +112,64 @@ Route::get('/proxy-news', function () {
 
 
 
-Route::get('/proxy-amadeus-locations', function () {
-    try {
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer fkJxYjUwJ8FevIi0uBQjY9pAulwo',
-        ])->get('https://test.api.amadeus.com/v1/reference-data/locations', [
-            'subType' => 'CITY',
-            'keyword' => 'MUC',
-            'page[limit]' => 10,
-            'page[offset]' => 0,
-            'sort' => 'analytics.travelers.score',
-            'view' => 'FULL',
-        ]);
+// Route::get('/proxy-amadeus-locations', function () {
+//     try {
+//         $response = Http::withHeaders([
+//             'Authorization' => 'Bearer fkJxYjUwJ8FevIi0uBQjY9pAulwo',
+//         ])->get('https://test.api.amadeus.com/v1/reference-data/locations', [
+//             'subType' => 'CITY',
+//             'keyword' => 'MUC',
+//             'page[limit]' => 10,
+//             'page[offset]' => 0,
+//             'sort' => 'analytics.travelers.score',
+//             'view' => 'FULL',
+//         ]);
 
-        return $response->json();
-    } catch (\Exception $e) {
-        return response()->json(['error' => 'Internal server error'], 500);
-    }
-});
+//         return $response->json();
+//     } catch (\Exception $e) {
+//         return response()->json(['error' => 'Internal server error'], 500);
+//     }
+// });
 
 
 
-Route::get('/flight-tickets', function () {
-    $response = Http::withHeaders([
-        'accept' => 'application/json',
-        'apikey' => 'XvPBBJt16Efdg3uPDXDjAj5RZ5LdcTOa',
-    ])->get('https://api.tequila.kiwi.com/v2/search', [
-        'fly_from' => 'FRA',
-        'fly_to' => 'LAX',
-        'date_from' => '01/04/2024',
-        'date_to' => '07/12/2024',
-        'return_from' => '04/04/2024',
-        'return_to' => '07/12/2024',
-        'nights_in_dst_from' => 2,
-        'nights_in_dst_to' => 3,
-        'max_fly_duration' => 20,
-        'ret_from_diff_city' => true,
-        'ret_to_diff_city' => true,
-        'one_for_city' => 0,
-        'one_per_date' => 0,
-        'adults' => 2,
-        'children' => 2,
-        'selected_cabins' => 'C',
-        'mix_with_cabins' => 'M',
-        'adult_hold_bag' => '1,0',
-        'adult_hand_bag' => '1,1',
-        'child_hold_bag' => '2,1',
-        'child_hand_bag' => '1,1',
-        'only_working_days' => false,
-        'only_weekends' => false,
-        'partner_market' => 'us',
-        'max_stopovers' => 2,
-        'max_sector_stopovers' => 2,
-        'vehicle_type' => 'aircraft',
-        'limit' => 500,
-    ]);
+// Route::get('/flight-tickets', function () {
+//     $response = Http::withHeaders([
+//         'accept' => 'application/json',
+//         'apikey' => 'XvPBBJt16Efdg3uPDXDjAj5RZ5LdcTOa',
+//     ])->get('https://api.tequila.kiwi.com/v2/search', [
+//         'fly_from' => 'FRA',
+//         'fly_to' => 'LAX',
+//         'date_from' => '01/04/2024',
+//         'date_to' => '07/12/2024',
+//         'return_from' => '04/04/2024',
+//         'return_to' => '07/12/2024',
+//         'nights_in_dst_from' => 2,
+//         'nights_in_dst_to' => 3,
+//         'max_fly_duration' => 20,
+//         'ret_from_diff_city' => true,
+//         'ret_to_diff_city' => true,
+//         'one_for_city' => 0,
+//         'one_per_date' => 0,
+//         'adults' => 2,
+//         'children' => 2,
+//         'selected_cabins' => 'C',
+//         'mix_with_cabins' => 'M',
+//         'adult_hold_bag' => '1,0',
+//         'adult_hand_bag' => '1,1',
+//         'child_hold_bag' => '2,1',
+//         'child_hand_bag' => '1,1',
+//         'only_working_days' => false,
+//         'only_weekends' => false,
+//         'partner_market' => 'us',
+//         'max_stopovers' => 2,
+//         'max_sector_stopovers' => 2,
+//         'vehicle_type' => 'aircraft',
+//         'limit' => 500,
+//     ]);
 
-    return $response->json();
-});
+//     return $response->json();
+// });
 
 
 
@@ -195,21 +195,21 @@ Route::get('/search-flight-tickets', function () {
     return $response->json();
 });
 
-Route::get('/api/destinations', function () {
-    try {
-        $response = Http::get('https://api.opentripmap.com/0.1/en/places/bbox', [
-            'lon_min' => -180,
-            'lon_max' => 180,
-            'lat_min' => -90,
-            'lat_max' => 90,
-            'format' => 'json',
-            'apikey' => '5ae2e3f221c38a28845f05b6f701c26e6d0f1b27aecd1863cc210be4',
-        ]);
-        return $response->json();
-    } catch (Exception $e) {
-        return response()->json(['error' => 'Failed to fetch destinations'], 500);
-    }
-});
+// Route::get('/api/destinations', function () {
+//     try {
+//         $response = Http::get('https://api.opentripmap.com/0.1/en/places/bbox', [
+//             'lon_min' => -180,
+//             'lon_max' => 180,
+//             'lat_min' => -90,
+//             'lat_max' => 90,
+//             'format' => 'json',
+//             'apikey' => '5ae2e3f221c38a28845f05b6f701c26e6d0f1b27aecd1863cc210be4',
+//         ]);
+//         return $response->json();
+//     } catch (Exception $e) {
+//         return response()->json(['error' => 'Failed to fetch destinations'], 500);
+//     }
+// });
 
 
 Route::get('/flight-info', [FlightInfoController::class, 'index']);

@@ -13,6 +13,12 @@ const Tickets = ({ auth, user }) => {
     const [searchToCity, setSearchToCity] = useState('');
     const [searchDate, setSearchDate] = useState('');
     const ticketsPerPage = 4;
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const images = [
+        { src: "/images/travel.jpg", alt: "Airplane" },
+        { src: "/images/ss6.jpg", alt: "Booking" },
+        { src: "/images/ss8.jpg", alt: "Travel" }
+    ];
 
     const fetchTickets = async (params = {}) => {
         try {
@@ -22,6 +28,14 @@ const Tickets = ({ auth, user }) => {
             console.error('Error fetching tickets:', error);
         }
     };
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((currentIndex + 1) % images.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [currentIndex]);
+
 
     useEffect(() => {
         fetchTickets();
@@ -70,16 +84,12 @@ const Tickets = ({ auth, user }) => {
                                 Book Now</a>
                         </div>
                         <div className="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3 justify-center">
-                            <div className="h-48 flex flex-wrap content-center">
-                                <div className="image-container inline-block mt-28 xl:block">
-                                    <img src="/images/travel.jpg" alt="Airplane" className="image-style" />
-                                </div>
-                                <div className="image-container inline-block mt-24 md:mt-0 p-8 md:p-0">
-                                    <img src="/images/ss6.jpg" alt="Booking" className="image-style" />
-                                </div>
-                                <div className="image-container inline-block mt-28 lg:block">
-                                    <img src="/images/ss8.jpg" alt="Travel" className="image-style" />
-                                </div>
+                            <div className="relative w-full h-64">
+                                {images.map((image, index) => (
+                                    <div key={index} className={`absolute w-full h-full transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}>
+                                        <img src={image.src} alt={image.alt} className="w-full h-full object-cover rounded-lg" loading="lazy"/>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -171,10 +181,12 @@ const Tickets = ({ auth, user }) => {
                     </div>
                 </div>
             </div>
+
             <div>
                 <h1 className="text-2xl font-bold mb-4 align-middle text-center">Dicover More</h1>
-                <Panes />
+                {/* <Panes /> */}
             </div>
+
             <Footer />
         </>
     );

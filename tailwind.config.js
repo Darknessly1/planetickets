@@ -28,7 +28,9 @@ export default {
             colors: {
                 gray: {
                     '900': '#0f1011'
-                }
+                },
+                'dark-blue-900': '#1E3A8A', 
+                'blue-800': '#2C5282',
             },
             minHeight: {
                 '14': '3.5rem'

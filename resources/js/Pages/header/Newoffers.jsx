@@ -46,6 +46,37 @@ export default function NewOffers({ auth, user }) {
     return (
         <>
             <Nav user={user} auth={auth} />
+            <section class="bg-gray-900 text-white m-4 rounded-3xl shadow-3">
+                <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <h1 class="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+                            New Ticket Offers
+
+                            <span class="sm:block"> Book Your Next Flight Today! </span>
+                        </h1>
+
+                        <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
+                            Discover unbeatable deals on flights to your favorite destinations. Limited-time offers you don't want to miss!
+                        </p>
+
+                        <div class="mt-8 flex flex-wrap justify-center gap-4">
+                            <a class="block w-full rounded border border-yellow-300 bg-yellow-300 px-12 py-3 text-sm font-medium text-gray-900 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto" href="#">
+                                Get Started
+                            </a>
+
+                            <a class="block w-full rounded border border-yellow-300 px-12 py-3 text-sm font-medium text-white hover:bg-yellow-300 hover:text-gray-900 focus:outline-none focus:ring active:bg-yellow-500 sm:w-auto" href="#">
+                                Learn More
+                            </a>
+                        </div>
+
+                        {/* <div class="mt-12">
+                            <img src="/images/ticket-offer.jpg" alt="Ticket Offer" class="mx-auto rounded-lg shadow-2xl max-w-lg" />
+                        </div> */}
+                    </div>
+                </div>
+            </section>
+
+
             <div>
                 <h2>New Offers</h2>
                 <div className="grid grid-cols-3 gap-4">
