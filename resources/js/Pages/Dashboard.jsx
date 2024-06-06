@@ -4,8 +4,11 @@ import { Head } from '@inertiajs/react';
 import { Inertia } from '@inertiajs/inertia';
 import axios from 'axios';
 import { TicketIcon } from '@heroicons/react/solid';
+import Nav from '@/Components/Nav';
+import SubNav from '@/Components/SubNav';
+import Footer from '@/Components/Footer';
 
-export default function Dashboard({ auth }) {
+export default function Dashboard({ auth, user }) {
     const [dashboardTickets, setDashboardTickets] = useState([]);
 
     useEffect(() => {
@@ -31,10 +34,13 @@ export default function Dashboard({ auth }) {
     };
 
     return (
-        <AuthenticatedLayout
-            user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight uppercase">Book a ticket</h2>}
-        >
+        <>
+            <Nav auth={auth} user={user} />
+            {/* <SubNav /> */}
+            {/* <AuthenticatedLayout
+                user={auth.user}
+                header={<h2 className="rounded-3xl m-4 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight uppercase">Book a ticket</h2>}
+            > */}
             <Head title="Tickets" />
 
             <div className="py-12">
@@ -88,6 +94,8 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+            {/* </AuthenticatedLayout> */}
+            <Footer />
+        </>
     );
 }
