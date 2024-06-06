@@ -28,14 +28,13 @@ const Tickets = ({ auth, user }) => {
             console.error('Error fetching tickets:', error);
         }
     };
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((currentIndex + 1) % images.length);
         }, 3000);
         return () => clearInterval(interval);
     }, [currentIndex]);
-
 
     useEffect(() => {
         fetchTickets();
@@ -55,6 +54,15 @@ const Tickets = ({ auth, user }) => {
         setSearchToCity('');
         setSearchDate('');
         fetchTickets();
+    };
+
+    const handleAddToDashboard = async (ticketId) => {
+        try {
+            await axios.post('/dashboard-tickets/add', { ticket_id: ticketId });
+            alert('Ticket added to dashboard successfully');
+        } catch (error) {
+            console.error('Error adding ticket to dashboard:', error);
+        }
     };
 
     const filteredTickets = tickets.slice((currentPage - 1) * ticketsPerPage, currentPage * ticketsPerPage);
@@ -87,7 +95,7 @@ const Tickets = ({ auth, user }) => {
                             <div className="relative w-full h-64">
                                 {images.map((image, index) => (
                                     <div key={index} className={`absolute w-full h-full transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}>
-                                        <img src={image.src} alt={image.alt} className="w-full h-full object-cover rounded-lg" loading="lazy"/>
+                                        <img src={image.src} alt={image.alt} className="w-full h-full object-cover rounded-lg" loading="lazy" />
                                     </div>
                                 ))}
                             </div>
@@ -95,8 +103,6 @@ const Tickets = ({ auth, user }) => {
                     </div>
                 </div>
             </section>
-
-
 
             <div className="container mx-auto p-4">
                 <h2 className="text-2xl font-bold mb-4 text-center">Search Tickets</h2>
@@ -135,7 +141,7 @@ const Tickets = ({ auth, user }) => {
                     </button>
                 </div>
 
-                <h2 className="text-2xl font-bold mb-4  text-center">Tickets</h2>
+                <h2 className="text-2xl font-bold mb-4 text-center">Tickets</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {filteredTickets.map(ticket => (
                         <div key={ticket.id} className="relative cursor-pointer dark:text-black">
@@ -153,6 +159,12 @@ const Tickets = ({ auth, user }) => {
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">To City:</span> {ticket.arrival_city}</p>
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">Date:</span> {ticket.date}</p>
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">Price:</span> {ticket.price}</p>
+                                <button
+                                    onClick={() => handleAddToDashboard(ticket.id)}
+                                    className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg"
+                                >
+                                    Add to Dashboard
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -183,8 +195,8 @@ const Tickets = ({ auth, user }) => {
             </div>
 
             <div>
-                <h1 className="text-2xl font-bold mb-4 align-middle text-center">Dicover More</h1>
-                {/* <Panes /> */}
+                <h1 className="text-2xl font-bold mb-4 align-middle text-center">Discover More</h1>
+                <Panes />
             </div>
 
             <Footer />
@@ -193,7 +205,3 @@ const Tickets = ({ auth, user }) => {
 };
 
 export default Tickets;
-
-
-
-

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { Inertia } from '@inertiajs/inertia';
 import axios from 'axios';
 import { TicketIcon } from '@heroicons/react/solid';
 
@@ -16,10 +17,18 @@ export default function Dashboard({ auth }) {
         fetchDashboardTickets();
     }, []);
 
-    const handleDelete = () => {
+    const handleShowConfirmPurchase = (ticketId) => {
+        Inertia.get('/confirm-purchase', { ticketId });
+    };
 
-    }
-
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`/dashboard-tickets/${id}`);
+            setDashboardTickets(dashboardTickets.filter(ticket => ticket.id !== id));
+        } catch (error) {
+            console.error('Error deleting ticket from dashboard:', error);
+        }
+    };
 
     return (
         <AuthenticatedLayout
@@ -50,16 +59,19 @@ export default function Dashboard({ auth }) {
                                                 <p className="my-2 text-gray-600"><strong>Seat Number:</strong> {dashboardTicket.ticket.SeatNumber}</p>
                                                 <p className="my-2 text-gray-600"><strong>Price:</strong> ${dashboardTicket.ticket.Price}</p>
                                                 <p className="my-2 text-gray-600"><strong>Airline:</strong> {dashboardTicket.ticket.Airline}</p>
-                                                <div class="flex flex-wrap justify-center gap-6">
-                                                    <a class="relative" href="#">
-                                                        <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-red-500"></span>
-                                                        <span
-                                                            class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-red-400 hover:text-gray-900"
-                                                            onClick={() => handleDelete()}
-                                                        >
-                                                            Delete From Dashboard
-                                                        </span>
-                                                    </a>
+                                                <div className="flex flex-wrap justify-center gap-6">
+                                                    <button
+                                                        onClick={() => handleShowConfirmPurchase(dashboardTicket.ticket.TicketID)}
+                                                        className="px-4 py-2 bg-green-500 text-white rounded-lg"
+                                                    >
+                                                        Confirm Purchase
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleDelete(dashboardTicket.ticket.TicketID)}
+                                                        className="px-4 py-2 bg-red-500 text-white rounded-lg"
+                                                    >
+                                                        Delete
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,7 +82,6 @@ export default function Dashboard({ auth }) {
                     </div>
                 </div>
             </div>
-
         </AuthenticatedLayout>
     );
 }

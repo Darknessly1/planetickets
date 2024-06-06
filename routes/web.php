@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AirportLocationsController;
+use App\Http\Controllers\DashboardTicketController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +11,10 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FlightInfoController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\NewTicketController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\TicketController;
+use App\Models\Ticket;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -78,7 +82,7 @@ Route::get('/api/newtickets', [TicketController::class, 'index']);
 
 Route::post('/add-to-dashboard', [TicketController::class, 'addToDashboard']);
 Route::get('/dashboard-tickets', [TicketController::class, 'getDashboardTickets']);
-
+Route::delete('/dashboard-tickets/{id}', [TicketController::class, 'deleteFromDashboard']);
 
 
 Route::get('/login', function () {
@@ -89,9 +93,51 @@ Route::get('/register', function () {
     return Inertia::render('Auth/Register');
 })->name('register');
 
+Route::post('/api/dashboard-tickets', [DashboardTicketController::class, 'store']);
+Route::get('/api/dashboard-tickets', [DashboardTicketController::class, 'index']);
+Route::delete('/api/dashboard-tickets/{id}', [DashboardTicketController::class, 'destroy']);
+
+Route::get('/dashboard-tickets', [DashboardTicketController::class, 'getAllTickets']);
+Route::post('/dashboard-tickets/add', [DashboardTicketController::class, 'addTicketToDashboard']);
+Route::delete('/dashboard-tickets/{id}', [DashboardTicketController::class, 'deleteTicketFromDashboard']);
+
+Route::middleware(['auth', 'verified'])->get('/confirm-purchase', function (Request $request) {
+    $ticketId = $request->input('ticketId');
+    return Inertia::render('header/ConfirmPurchase', ['ticketId' => $ticketId]);
+})->name('confirm-purchase');
+
+
+Route::get('/ticket/{id}', function ($id) {
+    $ticket = Ticket::find($id);
+    if (!$ticket) {
+        return response()->json(['error' => 'Ticket not found'], 404);
+    }
+    return response()->json($ticket);
+});
+
+
+Route::middleware(['auth', 'verified'])->get('/confirm-purchase', function (Illuminate\Http\Request $request) {
+    $ticketId = $request->input('ticketId');
+    return Inertia::render('header/ConfirmPurchase', ['ticketId' => $ticketId]);
+})->name('confirm-purchase');
 
 
 
+
+
+
+
+Route::post('/confirm-purchase', [PurchaseController::class, 'confirmPurchase']);
+
+Route::get('/purchase/create', [PurchaseController::class, 'create'])->name('purchase.create');
+Route::post('/purchase/store', [PurchaseController::class, 'store'])->name('purchase.store');
+
+Route::post('/purchase/store', [PurchaseController::class, 'store'])->name('purchase.store');
+
+
+
+
+Route::post('/dashboard/add', [DashboardTicketController::class, 'addToDashboard']);
 
 Route::get('/api/hotels', [HotelController::class, 'index']);
 

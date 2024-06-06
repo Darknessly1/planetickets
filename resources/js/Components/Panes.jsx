@@ -41,6 +41,3 @@ const Panes = () => {
 };
 
 export default Panes;
-
-
-

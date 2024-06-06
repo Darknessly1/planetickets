@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'TicketID';
 
     protected $fillable = [
         'PassengerName', 'FlightNumber', 'DepartureAirport', 'ArrivalAirport', 
-        'DepartureDateTime', 'ArrivalDateTime', 'SeatNumber', 'Price', 'Airline'
+        'DepartureDateTime', 'ArrivalDateTime', 'SeatNumber', 'Price',  'Airline'
     ];
 
     public function users() {
