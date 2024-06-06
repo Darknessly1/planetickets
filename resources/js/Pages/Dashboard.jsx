@@ -46,7 +46,7 @@ export default function Dashboard({ auth }) {
                                 {dashboardTickets.map((dashboardTicket, index) => (
                                     <div key={index} className="card">
                                         <div className="relative max-w-sm m-4">
-                                            <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-gray-300 rounded-lg"></span>
+                                            <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-gray-500 rounded-lg"></span>
                                             <div className="relative h-full p-3 bg-white border-2 border-black rounded-lg">
                                                 <div className="flex items-center -mt-1">
                                                     <TicketIcon className="w-8 h-8 text-red-500" />
@@ -60,17 +60,23 @@ export default function Dashboard({ auth }) {
                                                 <p className="my-2 text-gray-600"><strong>Price:</strong> ${dashboardTicket.ticket.Price}</p>
                                                 <p className="my-2 text-gray-600"><strong>Airline:</strong> {dashboardTicket.ticket.Airline}</p>
                                                 <div className="flex flex-wrap justify-center gap-6">
-                                                    <button
-                                                        onClick={() => handleShowConfirmPurchase(dashboardTicket.ticket.TicketID)}
-                                                        className="px-4 py-2 bg-green-500 text-white rounded-lg"
-                                                    >
-                                                        Confirm Purchase
+                                                    <button className="relative" href="#">
+                                                        <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+                                                        <span
+                                                            className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-green-600 hover:text-white"
+                                                            onClick={() => handleShowConfirmPurchase(dashboardTicket.ticket.TicketID)}
+                                                        >
+                                                            Confirm Purchase
+                                                        </span>
                                                     </button>
-                                                    <button
-                                                        onClick={() => handleDelete(dashboardTicket.ticket.TicketID)}
-                                                        className="px-4 py-2 bg-red-500 text-white rounded-lg"
-                                                    >
-                                                        Delete
+                                                    <button className="relative">
+                                                        <span className="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-red-500"></span>
+                                                        <span
+                                                            className="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-red-600 hover:text-white"
+                                                            onClick={() => handleDelete(dashboardTicket.id)}
+                                                        >
+                                                            Delete From Dashboard
+                                                        </span>
                                                     </button>
                                                 </div>
                                             </div>
