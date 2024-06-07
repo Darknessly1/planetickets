@@ -102,11 +102,13 @@ const Tickets = ({ auth, user }) => {
                         </div>
                     </div>
                 </div>
+                <div class="absolute text-center font-bold text-2xl bottom-0 left-1/2 transform -translate-x-1/2 w-80 bg-sky-600 text-white p-4 rounded-full shadow-lg" style={{ marginBottom: "-17rem" }}>
+                    Search for Tickets
+                </div>
             </section>
 
             <div className="container mx-auto p-4">
-                <h2 className="text-2xl font-bold mb-4 text-center">Search Tickets</h2>
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex flex-wrap gap-4 mb-8 mt-4">
                     <input
                         type="text"
                         placeholder="From City"
@@ -129,15 +131,19 @@ const Tickets = ({ auth, user }) => {
                     />
                     <button
                         onClick={handleSearch}
-                        className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-lg"
+                        className='relative'
                     >
-                        Search
+                        <span class="fold-bold relative inline-block  rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-blue-400 hover:text-white">
+                            Search
+                        </span>
+
                     </button>
                     <button
                         onClick={handleReset}
-                        className="flex-1 px-4 py-2 bg-gray-500 text-white rounded-lg"
                     >
-                        Reset
+                        <span class="fold-bold relative inline-block  rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-gray-400 hover:text-white">
+                            Reset
+                        </span>
                     </button>
                 </div>
 
@@ -158,12 +164,14 @@ const Tickets = ({ auth, user }) => {
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">To Country:</span> {ticket.arrival_country}</p>
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">To City:</span> {ticket.arrival_city}</p>
                                 <p className="text-white dark:text-black"><span className="text-lg font-bold">Date:</span> {ticket.date}</p>
-                                <p className="text-white dark:text-black"><span className="text-lg font-bold">Price:</span> {ticket.price}</p>
+                                <p className="text-white dark:text-black"><span className="text-lg font-bold">Price:</span> ${ticket.price}</p>
                                 <button
                                     onClick={() => handleAddToDashboard(ticket.id)}
-                                    className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg"
                                 >
-                                    Add to Dashboard
+                                    <span class="absolute top-0 left-0 mt-1 ml-1 w-fit rounded bg-black"></span>
+                                    <span class="fold-bold relative inline-block  rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-green-400 hover:text-white">
+                                        Add to Dashboard
+                                    </span>
                                 </button>
                             </div>
                         </div>

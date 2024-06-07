@@ -62,6 +62,10 @@ Route::get('/aboutus',  function () {
     return Inertia::render('header/Aboutus');
 });
 
+Route::get('/services',  function () {
+    return Inertia::render('header/Services');
+});
+
 
 // this is for the new tickets:
 Route::get('/api/tickets', [NewTicketController::class, 'index']);

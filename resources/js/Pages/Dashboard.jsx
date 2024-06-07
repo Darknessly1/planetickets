@@ -36,11 +36,6 @@ export default function Dashboard({ auth, user }) {
     return (
         <>
             <Nav auth={auth} user={user} />
-            {/* <SubNav /> */}
-            {/* <AuthenticatedLayout
-                user={auth.user}
-                header={<h2 className="rounded-3xl m-4 font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight uppercase">Book a ticket</h2>}
-            > */}
             <Head title="Tickets" />
 
             <div className="py-12">
@@ -94,7 +89,6 @@ export default function Dashboard({ auth, user }) {
                     </div>
                 </div>
             </div>
-            {/* </AuthenticatedLayout> */}
             <Footer />
         </>
     );

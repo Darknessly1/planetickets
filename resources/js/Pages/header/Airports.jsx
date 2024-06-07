@@ -35,7 +35,7 @@ function AirportList({ auth, user }) {
             <section class="mb-40 overflow-hidden">
 
                 <div
-                    class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('https://tecdn.b-cdn.net/img/new/standard/city/078.jpg')]">
+                    class="relative rounded-3xl m-4 overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('https://tecdn.b-cdn.net/img/new/standard/city/078.jpg')]">
                     <div
                         class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0.75)]">
                         <div class="flex h-full items-center justify-center">
@@ -43,6 +43,13 @@ function AirportList({ auth, user }) {
                                 <h1 class="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
                                     The best way to finde <br /><span>where your next trip start</span>
                                 </h1>
+                                <input
+                                    type="text"
+                                    placeholder="Search for an airport..."
+                                    value={searchTerm}
+                                    onChange={e => setSearchTerm(e.target.value)}
+                                    className="m-5 w-64 p-2 mb-4 border rounded-lg dark:bg-white dark:text-black"
+                                />
                                 <div class="m-4 flex flex-wrap justify-center gap-6">
                                     <a class="relative" href="#">
                                         <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-white"></span>
@@ -50,32 +57,16 @@ function AirportList({ auth, user }) {
                                             Discover more
                                         </span>
                                     </a>
-                                </div>                            </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div
-                    class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
-                    <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
-                            fill="currentColor"></path>
-                    </svg>
                 </div>
             </section>
 
 
 
-            <div className=" mt-4 mb-4 flex flex-col items-center justify-center  h-screen w-full">
-                {/* Search bar */}
-                <input
-                    type="text"
-                    placeholder="Search for an airport..."
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                    className="m-5 w-64 p-2 mb-4 border rounded-lg dark:bg-white dark:text-black"
-                />
-                {/* Cards */}
+            <div className="flex flex-col items-center justify-center  h-screen">
                 <div className="grid grid-cols-3 gap-4">
                     {currentAirports
                         .filter(airport => airport.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -91,7 +82,7 @@ function AirportList({ auth, user }) {
                                         <p className="text-black dark:text-black">City: {airport.city}</p>
                                         <p className="text-black dark:text-black">Country: {airport.country}</p>
                                         <div class="m-4 flex flex-wrap justify-center gap-6">
-                                            <a class="relative" href="#">
+                                            <a class="relative">
                                                 <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
                                                 <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-blue-400 hover:text-gray-900">
                                                     Discover more

@@ -177,13 +177,22 @@ function Hotels({ auth, user }) {
 
       <ul className="flex justify-center m-4">
         <li>
-          <button className="h-8 px-5 text-gray-400 font-bold transition-colors duration-150 bg-white border border-r-0 border-gray-500 rounded-l-lg focus:shadow-outline hover:bg-indigo-100" onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+          <button className="h-8 px-5 text-gray-400 font-bold transition-colors duration-150 bg-white border border-r-0 border-gray-500 rounded-l-lg focus:shadow-outline hover:bg-indigo-100"
+            onClick={prevPage} 
+            disabled={currentPage === 1}>
+            Previous
+          </button>
         </li>
         {renderPageNumbers}
         <li>
-          <button className="h-8 px-5 text-indigo-600 font-bold transition-colors duration-150 bg-white border border-r-0 border-gray-500 rounded-r-lg focus:shadow-outline hover:bg-indigo-100" onClick={nextPage} disabled={currentPage === Math.ceil(hotels.length / hotelsPerPage)}>Next</button>
+          <button className="h-8 px-5 text-indigo-600 font-bold transition-colors duration-150 bg-white border border-r-0 border-gray-500 rounded-r-lg focus:shadow-outline hover:bg-indigo-100"
+            onClick={nextPage} 
+            disabled={currentPage === Math.ceil(hotels.length / hotelsPerPage)}>
+            Next
+          </button>
         </li>
       </ul>
+
       <Footer />
     </>
   );
