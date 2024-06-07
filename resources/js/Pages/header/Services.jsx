@@ -5,72 +5,77 @@ export default function Services({ auth, user }) {
     return (
         <>
             <Nav auth={auth} user={user} />
-            <section class="container mx-auto p-10 md:py-10 px-0 md:p-10 md:px-0">
-                <section class="relative px-10 md:p-0 transform duration-500 ">
-                    <img class="xl:max-w-6xl" src="images/ss3.jpg" alt="" />
-                    <div class="content bg-white p-2 pt-8 md:p-12 pb-12 lg:max-w-lg w-full lg:absolute top-32 right-5">
-                        <div class="flex justify-between font-bold text-sm">
-                            <p>Aviation News</p>
-                            <p class="text-gray-400">30th April, 2024</p>
-                        </div>
-                        <h2 class="text-3xl font-semibold mt-4 md:mt-10">Revolutionizing Air Travel</h2>
-                        <p class="my-3 text-justify font-medium text-gray-700 leading-relaxed">The aviation industry is undergoing transformative changes, with innovations in electric aircraft, sustainable fuels, and advanced air traffic management systems. These advancements promise to make air travel more efficient, affordable, and environmentally friendly.</p>
-                        <button class="mt-2 md:mt-5 p-3 px-5 bg-black text-white font-bold text-sm hover:bg-purple-800">Read More</button>
-                    </div>
-                </section>
-            </section>
-
-
-
-            <div class="relative overflow-hidden bg-white m-4 rounded-lg">
-                <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-                    <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-                        <div class="sm:max-w-lg">
-                            <h1 class="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Explore Aviation Destinations</h1>
-                            <p class="mt-4 text-xl text-gray-500">Discover your next adventure with easy access to all the aviation destinations you desire. From bustling cities to serene getaways, find the perfect destination for your next trip.</p>
-                        </div>
-                        <div>
-                            <div class="mt-10">
-                                <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
-                                    <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                                        <div class="flex items-center space-x-6 lg:space-x-8">
-                                            <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                                                    <img src="images/destination1.jpg" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/destination2.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                            </div>
-                                            <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/destination3.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/destination4.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/destination5.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                            </div>
-                                            <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/ss2.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                                <div class="h-64 w-44 overflow-hidden rounded-lg">
-                                                    <img src="images/destination7.jpg" alt="" class="h-full w-full object-cover object-center" />
-                                                </div>
-                                            </div>
-                                        </div>
+            <div class="container relative flex flex-col justify-between h-full max-w-6xl px-10 mx-auto xl:px-0 mt-5">
+                <h2 class="mb-1 text-3xl font-extrabold leading-tight text-gray-900">Services</h2>
+                <p class="mb-12 text-lg text-gray-500">Here are a few of the awesome services we provide.</p>
+                <div class="w-full">
+                    <div class="flex flex-col w-full mb-10 sm:flex-row">
+                        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+                            <div class="relative h-full ml-0 mr-0 sm:mr-10">
+                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-500 rounded-lg"></span>
+                                <div class="relative h-full p-5 bg-white border-2 border-blue-500 rounded-lg">
+                                    <div class="flex items-center -mt-1">
+                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Flight Booking</h3>
                                     </div>
+                                    <p class="mt-3 mb-1 text-xs font-medium text-blue-500 uppercase">------------</p>
+                                    <p class="mb-2 text-gray-600">Easily search and book flights to your desired destinations with our user-friendly interface and secure booking system.</p>
                                 </div>
-
-                                <a href="#" class="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700">Explore Destinations</a>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-1/2">
+                            <div class="relative h-full ml-0 md:mr-10">
+                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
+                                <div class="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
+                                    <div class="flex items-center -mt-1">
+                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Customer Support</h3>
+                                    </div>
+                                    <p class="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">------------</p>
+                                    <p class="mb-2 text-gray-600">Our dedicated support team is available 24/7 to assist you with any questions or issues you may encounter during the booking process.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full mb-5 sm:flex-row">
+                        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+                            <div class="relative h-full ml-0 mr-0 sm:mr-10">
+                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
+                                <div class="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
+                                    <div class="flex items-center -mt-1">
+                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Flight Status Updates</h3>
+                                    </div>
+                                    <p class="mt-3 mb-1 text-xs font-medium text-yellow-400 uppercase">------------</p>
+                                    <p class="mb-2 text-gray-600">Stay informed with real-time flight status updates, including delays, cancellations, and gate changes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+                            <div class="relative h-full ml-0 mr-0 sm:mr-10">
+                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-red-400 rounded-lg"></span>
+                                <div class="relative h-full p-5 bg-white border-2 border-red-400 rounded-lg">
+                                    <div class="flex items-center -mt-1">
+                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Travel Insurance</h3>
+                                    </div>
+                                    <p class="mt-3 mb-1 text-xs font-medium text-red-400 uppercase">------------</p>
+                                    <p class="mb-2 text-gray-600">Protect your trip with our comprehensive travel insurance options, covering medical emergencies, trip cancellations, and more.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-1/2">
+                            <div class="relative h-full ml-0 md:mr-10">
+                                <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-purple-500 rounded-lg"></span>
+                                <div class="relative h-full p-5 bg-white border-2 border-purple-500 rounded-lg">
+                                    <div class="flex items-center -mt-1">
+                                        <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">Exclusive Deals</h3>
+                                    </div>
+                                    <p class="mt-3 mb-1 text-xs font-medium text-purple-500 uppercase">------------</p>
+                                    <p class="mb-2 text-gray-600">Access exclusive deals and discounts on flights, making your travel more affordable and enjoyable.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <Footer />
         </>
     )
