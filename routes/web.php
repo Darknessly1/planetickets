@@ -70,6 +70,10 @@ Route::get('/support',  function () {
     return Inertia::render('header/Support');
 });
 
+Route::get('/blogs',  function () {
+    return Inertia::render('header/Blogs');
+});
+
 
 // this is for the new tickets:
 Route::get('/api/tickets', [NewTicketController::class, 'index']);
