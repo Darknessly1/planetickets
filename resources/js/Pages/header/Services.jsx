@@ -1,6 +1,10 @@
-export default function Services() {
+import Footer from "@/Components/Footer";
+import Nav from "@/Components/Nav";
+
+export default function Services({ auth, user }) {
     return (
         <>
+            <Nav auth={auth} user={user} />
             <section class="container mx-auto p-10 md:py-10 px-0 md:p-10 md:px-0">
                 <section class="relative px-10 md:p-0 transform duration-500 ">
                     <img class="xl:max-w-6xl" src="images/ss3.jpg" alt="" />
@@ -67,6 +71,7 @@ export default function Services() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
