@@ -58,7 +58,7 @@ const Tickets = ({ auth, user }) => {
 
     const handleAddToDashboard = async (ticketId) => {
         try {
-            await axios.post('/dashboard-tickets/add', { ticket_id: ticketId });
+            await axios.post('/add-to-dashboard', { ticket_id: ticketId });
             alert('Ticket added to dashboard successfully');
         } catch (error) {
             console.error('Error adding ticket to dashboard:', error);
@@ -201,11 +201,11 @@ const Tickets = ({ auth, user }) => {
                     </div>
                 </div>
             </div>
-
+{/* 
             <div>
                 <h1 className="text-2xl font-bold mb-4 align-middle text-center">Discover More</h1>
                 <Panes />
-            </div>
+            </div> */}
 
             <Footer />
         </>

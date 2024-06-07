@@ -10,11 +10,32 @@ use Illuminate\Support\Facades\Auth;
 class TicketController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $tickets = Ticket::all();
+        $query = Ticket::query();
+
+        if ($request->filled('departureAirport')) {
+            $query->where('DepartureAirport', 'like', '%' . $request->departureAirport . '%');
+        }
+
+        if ($request->filled('arrivalAirport')) {
+            $query->where('ArrivalAirport', 'like', '%' . $request->arrivalAirport . '%');
+        }
+
+        if ($request->filled('departureDate')) {
+            $query->whereDate('DepartureDateTime', $request->departureDate);
+        }
+
+        if ($request->filled('arrivalDate')) {
+            $query->whereDate('ArrivalDateTime', $request->arrivalDate);
+        }
+
+        $tickets = $query->get();
         return response()->json($tickets);
     }
+
+
+
 
     public function getDashboardTickets()
     {

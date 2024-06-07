@@ -9,12 +9,10 @@ class NewTicketController extends Controller
 {
     public function index(Request $request)
     {
-        // Retrieve search parameters from the request
         $fromCity = $request->query('fromCity');
         $toCity = $request->query('toCity');
         $date = $request->query('date');
 
-        // Build the query based on the search parameters
         $query = NewTicket::query();
 
         if ($fromCity) {
