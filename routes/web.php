@@ -42,10 +42,6 @@ Route::get('/news',  function () {
     return Inertia::render('header/News');
 });
 
-Route::get('/cities', [DestinationController::class, 'index'], function () {
-    return Inertia::render('header/Cities');
-});
-
 Route::get('/airports',  function () {
     return Inertia::render('header/Airports');
 });
@@ -93,19 +89,9 @@ Route::get('/register', function () {
     return Inertia::render('Auth/Register');
 })->name('register');
 
-Route::post('/api/dashboard-tickets', [DashboardTicketController::class, 'store']);
-Route::get('/api/dashboard-tickets', [DashboardTicketController::class, 'index']);
-Route::delete('/api/dashboard-tickets/{id}', [DashboardTicketController::class, 'destroy']);
-
 Route::get('/dashboard-tickets', [DashboardTicketController::class, 'getAllTickets']);
 Route::post('/dashboard-tickets/add', [DashboardTicketController::class, 'addTicketToDashboard']);
 Route::delete('/dashboard-tickets/{id}', [DashboardTicketController::class, 'deleteTicketFromDashboard']);
-
-Route::middleware(['auth', 'verified'])->get('/confirm-purchase', function (Request $request) {
-    $ticketId = $request->input('ticketId');
-    return Inertia::render('header/ConfirmPurchase', ['ticketId' => $ticketId]);
-})->name('confirm-purchase');
-
 
 Route::get('/ticket/{id}', function ($id) {
     $ticket = Ticket::find($id);
@@ -114,6 +100,13 @@ Route::get('/ticket/{id}', function ($id) {
     }
     return response()->json($ticket);
 });
+
+
+Route::middleware(['auth', 'verified'])->get('/confirm-purchase', function (Illuminate\Http\Request $request) {
+    $ticketId = $request->input('ticketId');
+    return Inertia::render('header/ConfirmPurchase', ['ticketId' => $ticketId]);
+})->name('confirm-purchase');
+
 
 Route::post('/confirm-purchase', [PurchaseController::class, 'confirmPurchase']);
 

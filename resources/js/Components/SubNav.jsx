@@ -254,34 +254,7 @@ export default function SubNav() {
                         class="grid grid-cols-3 gap-y-2 outline-none outline-0"
                         role="menuitem"
                     >
-                        <a href="#">
-                            <button
-                                role="menuitem"
-                                class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                            >
-                                <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
-                                    {" "}
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        stroke-width="2"
-                                        class="h-6 w-6 text-gray-900"
-                                    >
-                                        <path d="M6 3a3 3 0 00-3 3v2.25a3 3 0 003 3h2.25a3 3 0 003-3V6a3 3 0 00-3-3H6zM15.75 3a3 3 0 00-3 3v2.25a3 3 0 003 3H18a3 3 0 003-3V6a3 3 0 00-3-3h-2.25zM6 12.75a3 3 0 00-3 3V18a3 3 0 003 3h2.25a3 3 0 003-3v-2.25a3 3 0 00-3-3H6zM17.625 13.5a.75.75 0 00-1.5 0v2.625H13.5a.75.75 0 000 1.5h2.625v2.625a.75.75 0 001.5 0v-2.625h2.625a.75.75 0 000-1.5h-2.625V13.5z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
-                                        Products
-                                    </h6>
-                                    <p class="block font-sans text-xs !font-medium text-blue-gray-500 antialiased">
-                                        Find the perfect solution for your needs.
-                                    </p>
-                                </div>
-                            </button>
-                        </a>
+                        
                         <a href="#">
                             <button
                                 role="menuitem"
@@ -480,70 +453,8 @@ export default function SubNav() {
                                 </div>
                             </button>
                         </a>
-                        <a href="#">
-                            <button
-                                role="menuitem"
-                                class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                            >
-                                <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
-                                    {" "}
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        stroke-width="2"
-                                        class="h-6 w-6 text-gray-900"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M1.5 7.125c0-1.036.84-1.875 1.875-1.875h6c1.036 0 1.875.84 1.875 1.875v3.75c0 1.036-.84 1.875-1.875 1.875h-6A1.875 1.875 0 011.5 10.875v-3.75zm12 1.5c0-1.036.84-1.875 1.875-1.875h5.25c1.035 0 1.875.84 1.875 1.875v8.25c0 1.035-.84 1.875-1.875 1.875h-5.25a1.875 1.875 0 01-1.875-1.875v-8.25zM3 16.125c0-1.036.84-1.875 1.875-1.875h5.25c1.036 0 1.875.84 1.875 1.875v2.25c0 1.035-.84 1.875-1.875 1.875h-5.25A1.875 1.875 0 013 18.375v-2.25z"
-                                            clip-rule="evenodd"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
-                                        Products
-                                    </h6>
-                                    <p class="block font-sans text-xs  !font-medium text-blue-gray-500 antialiased">
-                                        Find the perfect solution for your needs.
-                                    </p>
-                                </div>
-                            </button>
-                        </a>
-                        <a href="#">
-                            <button
-                                role="menuitem"
-                                class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                            >
-                                <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
-                                    {" "}
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        stroke-width="2"
-                                        class="h-6 w-6 text-gray-900"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
-                                            clip-rule="evenodd"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
-                                        Special Offers
-                                    </h6>
-                                    <p class="block font-sans text-xs  !font-medium text-blue-gray-500 antialiased">
-                                        Explore limited-time deals and bundles
-                                    </p>
-                                </div>
-                            </button>
-                        </a>
+                        
+                        
                     </ul>
                 </div>
             )}
