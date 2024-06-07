@@ -74,7 +74,7 @@ function FlightBookingCard({ ticket }) {
         <div>
 
             <div>
-                <div class="h-[calc(100vh-5rem)] bg-center imgback ">
+                <div class="h-[calc(100vh-5rem)] bg-center imgback rounded-3xl m-4 ">
                     <div class="mx-auto flex flex-col justify-center h-full">
                         <div class="mx-auto w-10/12 lg:w-2/5 text-center text-white">
                             <h1 class="text-7xl mb-4"><span class="text-white-600">Let’s talk</span> about your next trip!</h1>
@@ -190,36 +190,35 @@ function FlightBookingCard({ ticket }) {
                     <div className="flex flex-wrap -mx-4">
                         {tickets.map((ticket, index) => (
                             <div key={index} className="w-full sm:w-1/2 md:w-1/3 px-4 mb-4">
-                                <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-                                    <div className="p-6">
+                                <div className="relative cursor-pointer text-black">
+                                    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg dark:bg-gray-600"></span>
+                                    <div className="relative p-6 bg-white border-2 border-black rounded-lg hover:scale-105 transition duration-500">
                                         <div className="flex items-center justify-between mb-2">
-                                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                                                From: {ticket.cityFrom} ({ticket.flyFrom})
-                                            </p>
-                                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                                                To: {ticket.cityTo} ({ticket.flyTo})
-                                            </p>
+                                            <div>
+                                                <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900 text-black">
+                                                    From: {ticket.cityFrom} ({ticket.flyFrom})
+                                                </p>
+                                                <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900 text-black">
+                                                    To: {ticket.cityTo} ({ticket.flyTo})
+                                                </p>
+                                            </div>
                                             <div className="relative grid items-center px-4 py-2 font-sans text-xs font-bold text-white uppercase bg-green-600 rounded-lg select-none whitespace-nowrap">
-                                                <span className="">
+                                                <span>
                                                     ${ticket.price}
                                                 </span>
                                             </div>
                                         </div>
-                                        <p>Departure: {new Date(ticket.route[0].local_departure).toLocaleString()}</p>
-                                        <p>Arrival: {new Date(ticket.route[ticket.route.length - 1].local_arrival).toLocaleString()}</p>
-                                    </div>
-                                    <div className="p-6 pt-0">
-                                        <button
-                                            onClick={() => { handleAddToCart(); setOpen(false); }} // Close dropdown on button click
-                                            className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] rounded-full"
-                                            type="button"
-                                        >
-                                            Add to Cart
-                                        </button>
+                                        <p className="text-gray-600 ">
+                                            Departure: {new Date(ticket.route[0].local_departure).toLocaleString()}
+                                        </p>
+                                        <p className="text-gray-600 ">
+                                            Arrival: {new Date(ticket.route[ticket.route.length - 1].local_arrival).toLocaleString()}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         ))}
+
                     </div>
                 </div>
             </div>
