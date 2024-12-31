@@ -1,6 +1,8 @@
 # Final Year Project: Online Plane Ticket Purchase Application
 
-This project is a demonstration of an online plane ticket purchase system designed to offer an **easy**, **fast**, and **secure** experience for users. The primary goal of this project is to implement **security functionalities**, a **responsive UI**, and an **intuitive user experience** (UX).
+This project is a demonstration of an online plane ticket purchase system designed to offer an **easy**, **fast**, and **secure** experience for users. The primary goal of this project is to implement **security functionalities**, a **responsive UI**, and an **intuitive user experience** (UX). 
+
+**Note**: This project is still in development and is currently in its **first stages** of development.
 
 ---
 
